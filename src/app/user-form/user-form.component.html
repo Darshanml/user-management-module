@@ -1,0 +1,23 @@
+<h2>Add User</h2>
+
+<form (ngSubmit)="submitForm()">
+  <div *ngFor="let permission of permissions">
+    <input type="checkbox" [id]="permission" [name]="permission" [(ngModel)]="user.permissions[permission]">
+    <label [for]="permission">{{ permission }}</label>
+  </div>
+
+  <button type="submit">Add User</button>
+</form>
+
+<hr>
+
+<h2>User List</h2>
+
+<table>
+  <tr>
+    <th>Permissions</th>
+  </tr>
+  <tr *ngFor="let user of users">
+    <td>{{ user.permissions | json }}</td>
+  </tr>
+</table>
